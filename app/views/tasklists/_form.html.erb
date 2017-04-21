@@ -1,7 +1,32 @@
 <%= form_for(tasklist) do |f| %>
 
   
-<%= f.label :content, 'たすく' %>
+<% if tasklist.errors.any? %>
+
+    <div id="error_explanation">
+      <ul>
+        
+<% tasklist.errors.full_messages.each do |tasklist| %>
+
+          <li>
+<%= tasklist %>
+</li>
+        
+<% end %>
+
+      </ul>
+    </div>
+  
+<% end %>
+
+  
+<%= f.label :status, 'ステータスカラム' %>
+
+  
+<%= f.text_field :status %>
+
+  
+<%= f.label :content, 'メッセージ' %>
 
   
 <%= f.text_field :content %>
