@@ -1,9 +1,13 @@
-<%= form_for(tasklist) do |f| %>
+<div class="row">
+  <div class="col-lg-6">
+  <div class="col-sm-8">
+  <div class="col-xs-12">
+    <%= form_for(tasklist) do |f| %>
 
   
 <% if tasklist.errors.any? %>
 
-    <div id="error_explanation">
+    <div class="alert alert-warning">
       <ul>
         
 <% tasklist.errors.full_messages.each do |tasklist| %>
@@ -19,20 +23,30 @@
   
 <% end %>
 
+
+  <div class="form-group">
   
-<%= f.label :status, 'ステータスカラム' %>
+<%= f.label :status, 'ステータス' %>　
 
   
-<%= f.text_field :status %>
+<%= f.text_field :status, class: 'form-control' %>
 
+  </div>
+
+  <div class="form-group">
   
 <%= f.label :content, 'メッセージ' %>
 
   
-<%= f.text_field :content %>
+<%= f.text_field :content, class: 'form-control'  %>
 
-
+</div>
   
-<%= f.submit '投稿' %>
+<%= f.submit '投稿', class: 'btn btn-primary' %>
 
 <% end %>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
